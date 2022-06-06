@@ -52,7 +52,7 @@ export const changeWord = (string, word, newWord) => {
  * @returns {string}
  */
 export const truncate = (string, length) => {
-    return string.substr(0, length);
+    return string.slice(0, length);
 };
 
 /**
@@ -98,7 +98,7 @@ export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
 
     let quantityOfLetters = 0;
 
-    let searchLetter = string.toLowerCase().indexOf(symbol);
+    let searchLetter = string.toLowerCase().indexOf(symbol, 0);
 
     while(true){
         quantityOfLetters ++;
