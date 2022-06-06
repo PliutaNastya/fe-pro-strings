@@ -4,7 +4,22 @@
  * @param {string} string
  * @returns {string}
  */
-export const replaceZAndVFromString = (string) => {};
+export const replaceZAndVFromString = (string) => {
+
+    let resultString = "";
+
+    for (let i = 0; i < string.length; i++){
+
+        if (string[i].toLowerCase() === 'v') {
+            resultString += '*';
+        } else if (string[i].toLowerCase() === 'z') {
+            resultString += '*';
+        } else {
+            resultString += string[i];
+        }
+    }
+    return resultString;
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -16,7 +31,19 @@ export const replaceZAndVFromString = (string) => {};
  * @param {string} newWord
  * @returns {string}
  */
-export const changeWord = (string, word, newWord) => {};
+export const changeWord = (string, word, newWord) => {
+
+        if (!string.toLowerCase().includes(word)) {
+            return string;
+        }
+
+        const startPosition = string.toLowerCase().indexOf(word);
+        const endPosition = string.toLowerCase().indexOf(word) + word.length;
+
+        const resultString = `${string.slice(0, startPosition)}${ newWord}${string.slice(endPosition)}`
+
+        return resultString;
+};
 
 /**
  * Должна вернуть строку(1 аргумент) на обрезанную по длине(2 аргумент, число)
@@ -24,7 +51,9 @@ export const changeWord = (string, word, newWord) => {};
  * @param {number} length
  * @returns {string}
  */
-export const truncate = (string, length) => {};
+export const truncate = (string, length) => {
+    return string.slice(0, length);
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -37,7 +66,18 @@ export const truncate = (string, length) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbols = (string, symbol) => {};
+export const quantityOfSymbols = (string, symbol) => {
+    
+    let quantityOfLetters = 0;
+
+    for (let letter of string){
+        
+        if (letter.toLowerCase().includes(symbol)){
+            quantityOfLetters++;
+        }
+    }
+    return quantityOfLetters;
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -54,4 +94,18 @@ export const quantityOfSymbols = (string, symbol) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbolsWithIndexOf = (string, symbol) => {};
+export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
+
+    let quantityOfLetters = 0;
+
+    let searchLetter = string.toLowerCase().indexOf(symbol);
+
+    while(true){
+        quantityOfLetters ++;
+
+        searchLetter = string.toLowerCase().indexOf(symbol, searchLetter + 1);
+
+        if (searchLetter === -1) break;
+    }
+    return quantityOfLetters;
+};
