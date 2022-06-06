@@ -33,12 +33,12 @@ export const replaceZAndVFromString = (string) => {
  */
 export const changeWord = (string, word, newWord) => {
 
-        if (!string.toLowerCase().includes(word)) {
+        if (!string.includes(word)) {
             return string;
         }
 
-        const startPosition = string.toLowerCase().indexOf(word);
-        const endPosition = string.toLowerCase().indexOf(word) + word.length;
+        const startPosition = string.indexOf(word);
+        const endPosition = string.indexOf(word) + word.length;
 
         const resultString = `${string.slice(0, startPosition)}${ newWord}${string.slice(endPosition)}`
 
