@@ -52,7 +52,7 @@ export const changeWord = (string, word, newWord) => {
  * @returns {string}
  */
 export const truncate = (string, length) => {
-    return string.slice(0, length);
+    return string.substr(0, length);
 };
 
 /**
