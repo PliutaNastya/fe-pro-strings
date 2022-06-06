@@ -101,9 +101,12 @@ export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
     let searchLetter = string.toLowerCase().indexOf(symbol);
 
     while(true){ 
-        searchLetter = string.toLowerCase().indexOf(symbol, searchLetter + 1);
 
-        quantityOfLetters ++;
+        if(searchLetter > -1){
+            searchLetter = string.toLowerCase().indexOf(symbol, searchLetter + 1);
+            
+            quantityOfLetters ++;
+        }
 
         if (searchLetter === -1) break;
     }
