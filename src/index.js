@@ -96,16 +96,27 @@ export const quantityOfSymbols = (string, symbol) => {
  */
 export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
 
+    // let quantityOfLetters = 0;
+
+    // let searchLetter = string.toLowerCase().indexOf(symbol, 0);
+
+    // while(true){
+    //     quantityOfLetters ++;
+
+    //     searchLetter = string.toLowerCase().indexOf(symbol, searchLetter + 1);
+
+    //     if (searchLetter === -1) break;
+    // }
+    // return quantityOfLetters;
+
+
     let quantityOfLetters = 0;
 
-    let searchLetter = string.toLowerCase().indexOf(symbol, -1);
-
-    while(true){
-        quantityOfLetters ++;
-
-        searchLetter = string.toLowerCase().indexOf(symbol, searchLetter + 1);
-
-        if (searchLetter === -1) break;
+    for (let letter of string){
+        
+        if (letter.toLowerCase().includes(symbol)){
+            quantityOfLetters++;
+        }
     }
     return quantityOfLetters;
 };
