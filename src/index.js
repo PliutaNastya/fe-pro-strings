@@ -6,17 +6,14 @@
  */
 export const replaceZAndVFromString = (string) => {
 
-    let resultString = "";
+    let resultString = '';
 
-    for (let i = 0; i < string.length; i++){
+    for (let letter of string) {
 
-        if (string[i].toLowerCase() === 'v') {
-            resultString += '*';
-        } else if (string[i].toLowerCase() === 'z') {
-            resultString += '*';
-        } else {
-            resultString += string[i];
+        if(letter.toLowerCase().includes('z') || letter.toLowerCase().includes('v')) {
+            letter = '*';
         }
+        resultString = `${resultString}${letter}`;
     }
     return resultString;
 };
@@ -33,16 +30,16 @@ export const replaceZAndVFromString = (string) => {
  */
 export const changeWord = (string, word, newWord) => {
 
-        if (!string.includes(word)) {
-            return string;
-        }
+    if (!string.includes(word)) {
+        return string;
+    };
 
-        const startPosition = string.indexOf(word);
-        const endPosition = string.indexOf(word) + word.length;
+    const startPosition = string.indexOf(word);
+    const endPosition = string.indexOf(word) + word.length;
 
-        const resultString = `${string.slice(0, startPosition)}${ newWord}${string.slice(endPosition)}`
+    const resultString = `${string.slice(0, startPosition)}${ newWord}${string.slice(endPosition)}`;
 
-        return resultString;
+    return resultString;
 };
 
 /**
